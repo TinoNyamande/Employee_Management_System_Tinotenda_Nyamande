@@ -1,0 +1,155 @@
+<div class="outer">
+<div class="dropdown center" >
+    <button class="  btn btn-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+     Add employee
+    </button>
+</div>
+<div class="cont outer ">
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right mysidebar mypanel" id="sidebar-wrapper">
+        <div class="sidebar-heading">Menu</div>
+        <div class="list-group list-group-flush">
+            <a  class="list-group-item list-group-item-action bg-light" routerLink="/dashboard">Dashboard</a>
+            <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/create-company"> Create company </a></li>
+            <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/add-employees" >Add Employees</a></li>
+            <li> <a  class="list-group-item list-group-item-action bg-light"  routerLink="/view-employees">
+                 View Employees</a>   </li>
+                 <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/view-all-performances" >
+                    Employees Performances</a></li>
+            <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/employee-checkin">
+                Checkin</a></li>
+            <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/employee-checkout">
+                Checkout</a></li>
+            <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/view-leave-applications">
+                View leave applications</a></li>
+          
+            <li><button  class="list-group-item list-group-item-action bg-light"  (click) ="logout()">
+                Log out</button></li>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+
+        <div class="container-fluid outer mt-15">
+          
+                    <div class="row">
+                        <div class="col-10">
+                           
+                                
+                                    
+                               
+                                
+                                    <form [formGroup]="signupForm">
+            
+                                        <div class="form-group pt-3">
+                                            <div class="input-field"
+                                                [class.error]="signupForm.controls['name'].dirty && signupForm.hasError('required','name')">
+                                                <input formControlName="name" id="name" class="form-control" type="text"
+                                                    placeholder="Name">
+                                            </div>
+                                            <small
+                                                *ngIf="signupForm.controls['name'].dirty && signupForm.hasError('required','name')"
+                                                class="text-danger">Enter valid name</small>
+                                        </div>
+            
+            
+                                        <div class="form-group pt-3">
+                                            <div class="input-field "
+                                                [class.error]="signupForm.controls['surname'].dirty && signupForm.hasError('required','surname')">
+                                                <input formControlName="surname" id="surname" class="form-control" type="text"
+                                                    placeholder="Surname">
+                                            </div>
+                                            <small
+                                                *ngIf="signupForm.controls['surname'].dirty && signupForm.hasError('required','surname')"
+                                                class="text-danger">Enter valid surname</small>
+                                        </div>
+            
+                                        <div class="form-group pt-3">
+                                            <div class="input-field "
+                                                [class.error]="signupForm.controls['email'].dirty && signupForm.hasError('required','email')">
+            
+                                                <input formControlName="email" id="email" class="form-control" type="email"
+                                                    placeholder="Email">
+                                            </div>
+                                            <small
+                                                *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required','email')"
+                                                class="text-danger">Enter valid email</small>
+                                        </div>
+            
+                                        <div class="form-group pt-3">
+                                            <div class="input-field"
+                                                [class.error]="signupForm.controls['phone'].dirty && signupForm.hasError('required','phone')">
+            
+                                                <input formControlName="phone" id="phone" class="form-control" type="text"
+                                                    placeholder="Phone">
+                                            </div>
+                                            <small
+                                                *ngIf="signupForm.controls['phone'].dirty && signupForm.hasError('required','phone')"
+                                                class="text-danger">Enter valid phone number</small>
+                                        </div>
+            
+                                        
+            
+                                        <input formControlName="role" value="user" type="text" hidden>
+                                        <input formControlName="companyName" type="text" value={{myemail}} hidden>
+                                        <input formControlName="companyId" value={{companyId}}  type="text" required hidden>
+                                            
+                                        
+            
+                                        <div class="form-group pt-3">
+                                            <div class="input-field"
+                                                [class.error]="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">
+                                                <input formControlName="password" id="password" class="form-control"
+                                                    type="{{showPassword?'text':'password'}}" placeholder="Password" />
+            
+                                            </div>
+                                            <small
+                                            *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')"
+                                            class="text-danger">Enter valid password</small>
+                                            <div class="input-field">
+                                                <input type="checkbox" (click)="togglePassword()" />
+            
+                                                <label class="p-3"> Show password</label>
+                                               
+            
+                                            </div>
+            
+                                            <div class="form-group pt-3">
+                                                <div class="input-field "
+                                                    [class.error]="signupForm.controls['name'].dirty && signupForm.hasError('required','name')">
+                                                    <input formControlName="cpassword" id="cpassword" class="form-control"
+                                                        placeholder=" Confirm Password" type="password" />
+            
+                                                </div>
+                                                <small
+                                                    *ngIf="signupForm.controls['cpassword'].dirty && signupForm.hasError('required','cpassword')"
+                                                    class="text-danger">Passwords must match</small>
+                                            </div>
+                                        </div>
+            
+                                        <button (click) ="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100">Register</button>
+                                        
+                                    </form>
+                                
+                            
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+</div>
+</div>
+
+
+
+
+
+

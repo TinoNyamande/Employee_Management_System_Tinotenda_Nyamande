@@ -1,0 +1,97 @@
+<div class="outer">
+<div class="dropdown center">
+    <button class="  btn btn-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+     Performances
+    </button>
+</div>
+
+
+
+<div class="cont outer ">
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right mysidebar mypanel " id="sidebar-wrapper">
+            <div class="sidebar-heading">Menu</div>
+            <div class="list-group list-group-flush">
+                <a  class="list-group-item list-group-item-action bg-light" routerLink="/dashboard">Dashboard</a>
+                <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/create-company">
+                     Create company </a></li>
+               <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/add-employees" >
+               Add Employees</a></li>
+
+                <li> <a  class="list-group-item list-group-item-action bg-light"  routerLink="/view-employees"> 
+                    View Employees</a>   </li>
+                <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/view-all-performances" >
+                        Employees Performances</a></li>
+                <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/employee-checkin">
+                    Checkin</a></li>
+                <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/employee-checkout">
+                    Checkout</a></li>
+                <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/view-leave-applications">
+                    View leave applications</a></li>
+                
+                <li><button  class="list-group-item list-group-item-action bg-light"  (click) ="logout()">Log out
+                    
+                </button></li>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+    
+    
+            <div class="container-fluid outer">
+                <div class="row">
+        
+                    <div class="col-10  mt-5">
+                        
+                        <table class="table">
+                            <thead>
+                                <tr class="bg-dark">
+                                    <th>Date</th>
+                                    <th>Email</th>
+                                    <th>Checkin Time</th>
+                                    <th>Checkout Time</th>
+                                    <th>Minutes Worked</th>
+                                    <th>Work Done</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let user of performances">
+                                    <td> {{user['date']}} </td>
+                                    <td> {{user['email']}} </td>
+                                    <td> {{user['checkinTime']}}</td>
+                                    <td>{{user['checkoutTime']}}</td>
+                                    <td> {{user['hoursWorked']}} </td>
+                                    <td> {{user['workDone']}} </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+              </div>
+              <div class="container-fluid outer ">
+                
+                <div class="row">
+        
+                    <div class="col-4  mt-5">
+                        <h2>Notifications</h2>
+                
+                    </div>
+                </div>
+            
+            </div>
+            
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    
+    </div>
+    <!-- /#wrapper -->
+</div>
+    
+   

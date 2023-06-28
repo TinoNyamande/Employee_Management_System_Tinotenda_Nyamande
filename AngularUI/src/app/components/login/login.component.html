@@ -1,0 +1,97 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5  col-md-7 offset-lg-4 offset-md-3">  
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h2 class=" pt-3 font-weight-bold ">Log in</h2>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="loginForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field ">
+                                    <span class="fa"><fa-icon [icon] = "faUser"></fa-icon></span>
+                                    <label for="name">Email</label>
+                                   
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field " 
+                [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" >
+                                    
+                                    <input 
+                                    
+                                    formControlName="email" id="email" class="form-control" type="email" placeholder="Email">
+                                </div>
+                                <small
+                                 *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" 
+                                class="text-danger">Enter valid email</small>
+                            </div>
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field ">
+                                    <span class="fa"><fa-icon [icon] = "faLock"></fa-icon></span>
+                                    <label for="password">Password</label>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-group pt-3">
+                                <div class="input-field "
+                                 [class.error] ="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                                    <input formControlName="password" id="password" class="form-control"
+                                     type="{{showPassword?'text':'password'}}" placeholder="Password"/>
+                                    
+                                </div>
+                                <small
+                                *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')" 
+                                 class="text-danger">Enter valid password</small>
+                                <div class="input-field ">
+                                        <input type="checkbox" (click) = "togglePassword()"/>
+                                     
+                                    <label class="p-3">Show password</label>
+                                    
+                                    
+                                </div>
+                            </div>
+                            <div class="form-inline mt-4 fr ">
+                                <a id="forget" class="font-weight-bold" data-bs-toggle="modal" data-bs-target="#exampleModal">Forgot password</a>
+
+                            </div>
+                            <button (click) ="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100">Login</button>
+                            <div class="text-center pt-4 text-muted">Dont have an account?
+                                <a id="forget" routerLink="/signup">Sign up </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="exampleModalLabel"><span style="font-size: 25px;font-weight: 700;">
+                Forgot your password?</span><br>
+            <small>Enter your email address</small></p>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group pt-3">
+                    <div class="input-field"><span class="fa fa-user p-2"></span>
+                        <input [(ngModel)]="resetPasswordEmail" 
+                        (ngModelChange) = "checkValidEmail($event)"
+                        type="text" placeholder="Email"/></div>
+                    <small *ngIf="!resetPasswordEmail" class="text-danger">Email is required</small>
+                    <small *ngIf="!isValidEmail && resetPasswordEmail" class="text-danger">Email is invalid</small>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeBtn" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button (click)="confirmSend()" type="button" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

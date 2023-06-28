@@ -1,0 +1,89 @@
+
+<div *ngIf="role === 'user'">
+    <div class="dropdown center">
+        <button class="  btn btn-primary " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+         Logged in with {{role}}
+        </button>
+    </div>
+    
+    
+    
+    <div class="cont outer ">
+        <div class="d-flex" id="wrapper">
+    
+            <!-- Sidebar -->
+            <div class="bg-light mysidebar border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">Menu</div>
+                <div class="list-group list-group-flush">
+                    <a  class="list-group-item list-group-item-action bg-light" routerLink="/admin-dashboard">Dashboard</a>
+                    <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/leave-application"> Leave application</a></li>
+                    <li> <a  class="list-group-item list-group-item-action bg-light" routerLink="/add-employees" >Check leave application status</a></li>
+                    <li> <a  class="list-group-item list-group-item-action bg-light"  routerLink="/view-performances"> View performance</a>   </li>
+                    <li><button  class="list-group-item list-group-item-action bg-light"  (click) ="logout()">Log out</button></li>
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+        
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+        
+        
+                <div class="container-fluid outer">
+                    <div class="row">
+            
+                        <div class="col-10  mt-5" >
+                            <h2>My profile</h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>{{users['id']}}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>{{users['name']}}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Surname</th>
+                                        <th>{{users['surname']}}</th>
+                                    </tr>
+                                    <tr>
+                                      <th>Email</th>
+                                      <th>{{users['email']}}</th>
+                                    </tr>
+                
+                                    <tr>
+                                      <th>Phone</th>
+                                      <th>{{users['phone']}}</th>
+                                    </tr>
+                
+                                    <tr>
+                                    <th>Role</th>
+                                    <th>{{users['role']}}</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="container-fluid outer ">
+                    
+                    <div class="row">
+            
+                        <div class="col-4  mt-5">
+                            <h2>Notifications</h2>
+                    
+                        </div>
+                    </div>
+                
+                </div>
+                
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+        
+        </div>
+</div>
+
+  
+   

@@ -1,0 +1,111 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5  col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h2 class=" pt-3 font-weight-bold ">Register</h2>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="signupForm">
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signupForm.controls['name'].dirty && signupForm.hasError('required','name')">
+                                    <input formControlName="name" id="name" class="form-control" type="text"
+                                        placeholder="Name">
+                                </div>
+                                <small
+                                    *ngIf="signupForm.controls['name'].dirty && signupForm.hasError('required','name')"
+                                    class="text-danger">Enter valid name</small>
+                            </div>
+
+
+                            <div class="form-group pt-3">
+                                <div class="input-field "
+                                    [class.error]="signupForm.controls['surname'].dirty && signupForm.hasError('required','surname')">
+                                    <input formControlName="surname" id="surname" class="form-control" type="text"
+                                        placeholder="Surname">
+                                </div>
+                                <small
+                                    *ngIf="signupForm.controls['surname'].dirty && signupForm.hasError('required','surname')"
+                                    class="text-danger">Enter valid surname</small>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field "
+                                    [class.error]="signupForm.controls['email'].dirty && signupForm.hasError('required','email')">
+
+                                    <input formControlName="email" id="email" class="form-control" type="email"
+                                        placeholder="Email">
+                                </div>
+                                <small
+                                    *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required','email')"
+                                    class="text-danger">Enter valid email</small>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signupForm.controls['phone'].dirty && signupForm.hasError('required','phone')">
+
+                                    <input formControlName="phone" id="phone" class="form-control" type="text"
+                                        placeholder="Phone">
+                                </div>
+                                <small
+                                    *ngIf="signupForm.controls['phone'].dirty && signupForm.hasError('required','phone')"
+                                    class="text-danger">Enter valid phone number</small>
+                            </div>
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                             [class.error]="signupForm.controls['role'].dirty && signupForm.hasError('required','role')">
+
+                                    <input formControlName="role" value="admin" id="role" class="form-control" type="text"
+                                        placeholder="Role" hidden>
+                                </div>
+                               
+                            </div>
+                            
+
+                            <div class="form-group pt-3">
+                                <div class="input-field"
+                                    [class.error]="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">
+                                    <input formControlName="password" id="password" class="form-control"
+                                        type="{{showPassword?'text':'password'}}" placeholder="Password" />
+
+                                </div>
+                                <small
+                                *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')"
+                                class="text-danger">Enter valid password</small>
+                                <div class="input-field">
+                                    <input type="checkbox" (click)="togglePassword()" />
+
+                                    <label class="p-3"> Show password</label>
+                                   
+
+                                </div>
+
+                                <div class="form-group pt-3">
+                                    <div class="input-field "
+                                        [class.error]="signupForm.controls['name'].dirty && signupForm.hasError('required','name')">
+                                        <input formControlName="cpassword" id="cpassword" class="form-control" type="password"
+                                            placeholder=" Confirm Password" />
+
+                                    </div>
+                                    <small
+                                        *ngIf="signupForm.controls['cpassword'].dirty && signupForm.hasError('required','cpassword')"
+                                        class="text-danger">Passwords must match</small>
+                                </div>
+                            </div>
+
+                            <button (click) ="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100">Sign up</button>
+                            <div class="text-center pt-4 text-muted">Already have an account?
+                                <a id="forget" routerLink="/home">Log in </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
